@@ -14,7 +14,7 @@ function csvReader(csvFilePath) {
 				output: "json",
 				colParser: {
 					"age": "number",
-					"hobbies":function(item, head, resultRow, row, colIdx){
+					"hobbies":function(item){
 						return item.split("|");
 					}
 				},
