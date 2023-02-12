@@ -1,4 +1,5 @@
-{
+[
+    {
     "name": "Carsten",
     "age": 34,
     "hobbies": [
@@ -6,3 +7,4 @@
         "Sports"
     ]
 }
+]
