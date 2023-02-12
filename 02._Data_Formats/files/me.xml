@@ -2,8 +2,6 @@
 <me>
     <name>Carsten</name>
     <age>34</age>
-    <hobbies>
-        <hobby>Programming</hobby>
-        <hobby>Sport</hobby>
-    </hobbies>
+    <hobbies>programming</hobbies>
+    <hobbies>sports</hobbies>
 </me>

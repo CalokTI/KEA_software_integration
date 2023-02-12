@@ -1,34 +1,33 @@
 import fs from "fs";
-import { parse } from "csv-parse";
+import csv from "csvtojson";
 
-class CsvReader {
-	constructor(filePath) {
-		this.filePath = filePath;
-		this.data = [];
-	}
+function csvReader(csvFilePath) {
+	return new Promise((resolve, reject) => {
+		fs.readFile(csvFilePath, "utf-8", (err, data) => {
+			if (err) {
+				reject(err);
+				return;
+			}
 
-	read() {
-		return new Promise((resolve, reject) => {
-			fs.createReadStream(this.filePath)
-				.pipe(parse({ columns: true }))
-				.on("data", (data) => {
-					this.data.push(data);
+			csv({
+				noheader: false,
+				output: "json",
+				colParser: {
+					"age": "number",
+					"hobbies":function(item, head, resultRow, row, colIdx){
+						return item.split("|");
+					}
+				},
+			})
+				.fromString(data)
+				.then((jsObject) => {
+					resolve(jsObject);
 				})
-				.on("end", () => {
-					console.log("Finished reading CSV file.");
-					resolve(this.data);
-				})
-				.on("error", (error) => {
+				.catch((error) => {
 					reject(error);
 				});
 		});
-	}
-}
-
-async function csvReader(filePath) {
-	const csvReader = new CsvReader(filePath);
-	const csvData = await csvReader.read();
-	return csvData;
+	});
 }
 
 export default csvReader;

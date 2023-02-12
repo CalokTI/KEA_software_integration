@@ -1,3 +1,3 @@
-Name: Carsten
-Age: 34
-Hobbies: Programming, Sports
+name: Carsten
+age: 34
+hobbies: programming, sports
