@@ -12,19 +12,19 @@ for await (const entry of dir) {
 		console.log("csv:", csvFileData[0]);
 	}
 	if (path.extname(entry.name) === ".json") {
-        const jsonFileData = JSON.parse(readFileSync(`../files/${entry.name}`));
+		const jsonFileData = JSON.parse(readFileSync(`../files/${entry.name}`));
 		console.log("json", jsonFileData[0]);
 	}
 	if (path.extname(entry.name) === ".txt") {
 		const txtFileData = await txtReader(`../files/${entry.name}`);
 		console.log("txt:", txtFileData);
 	}
-    if (path.extname(entry.name) === ".xml") {
-        const xmlFileData = await xmlReader(`../files/${entry.name}`);
-        console.log("xml:", xmlFileData.me);
-    }
-    if (path.extname(entry.name) === ".yaml") {
-        const yamlFileData = yamlReader(`../files/${entry.name}`);
-        console.log("ymal:", yamlFileData);
-    }
+	if (path.extname(entry.name) === ".xml") {
+		const xmlFileData = await xmlReader(`../files/${entry.name}`);
+		console.log("xml:", xmlFileData.me);
+	}
+	if (path.extname(entry.name) === ".yaml") {
+		const yamlFileData = yamlReader(`../files/${entry.name}`);
+		console.log("ymal:", yamlFileData);
+	}
 }
