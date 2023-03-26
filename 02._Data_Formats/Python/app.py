@@ -75,7 +75,6 @@ def parse_txt_data(data_str):
 
     return data_dict
 
-    
 @app.route("/xml")
 def get_xml_data():
         
