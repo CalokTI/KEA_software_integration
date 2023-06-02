@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: Eksempel API-dokumentation
+  description: Dette er en eksempel API-dokumentation, der følger OpenAPI-specifikationerne.
+  version: 1.0.0
+
+paths:
+  /users:
+    get:
+      summary: Hent brugere
+      description: Henter en liste over alle brugere i systemet.
+      responses:
+        '200':
+          description: Succes. Returnerer en liste over brugere.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+  /users/{id}:
+    get:
+      summary: Hent bruger efter ID
+      description: Henter en specifik bruger baseret på deres ID.
+      parameters:
+        - name: id
+          in: path
+          description: Brugerens ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succes. Returnerer brugeroplysninger.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Bruger ikke fundet.
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Brugerens ID.
+        name:
+          type: string
+          description: Brugerens navn.
+        email:
+          type: string
+          description: Brugerens e-mailadresse.

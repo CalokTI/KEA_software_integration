@@ -1,0 +1,27 @@
+MySQL Database hosted on Azure.
+
+Host:		20.223.39.49
+Port:		3306
+
+Username:	Alek
+Password:	password
+
+	
+Database:	classicmodels
+		
+Tables:
+	employees: read only
+	customers: read and write
+	
+
+MySQL Workbench:
+	Type relevant data in relevant fields.
+	Read and write with sql statements of your choice.
+	
+CLI:
+	mysql -h <Host> -u <Username> -p
+	<Password>
+	
+	use <Database>
+	
+	<sql statements>
