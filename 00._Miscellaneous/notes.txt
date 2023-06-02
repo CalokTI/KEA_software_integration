@@ -1,1 +1,24 @@
 OpenAPI editor: https://editor.swagger.io/
+
+
+Python
+#Create a virtual environment (.venv = name of folder)
+python -m venv .venv
+
+#Enter environment
+source .venv/Scripts/activate (standing in /Python)
+
+#Leave environment
+deactivate
+
+#requirement txt, similar to package.json from node.json
+pip freeze > requirements.txt
+
+poetry init
+
+poetry add fastapi uvicorn
+poetry add requests
+
+poetry shell (åbner python shell)
+uvicorn main:app --reload  (fil listener ligesom node)
+
