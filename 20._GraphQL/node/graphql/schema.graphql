@@ -1,0 +1,12 @@
+#graphql
+type Pokemon {
+    id: Int
+    name: String
+    type: String
+    evolves: Boolean
+}
+
+type Query {
+    pokemons: [Pokemon]
+    pokemon(id: Int): Pokemon
+}
